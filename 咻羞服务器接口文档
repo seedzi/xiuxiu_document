@@ -1,0 +1,78 @@
+1.登录
+　　m:loginByPlat
+  参数：xiuxiu_id
+       weixin_token||qq_token
+2.查询
+　　m:queryUserInfo
+　参数：xiuxiu_id
+  查询用户维度参数参考＂数据类型一＂
+3.用户给定维度插入所有可选维度
+　　m:insertUserInfo
+  参数：xiuxiu_id
+  插入用户维度参数参考＂数据类型一＂
+4.用户更新维度，按照魅力，年龄，性别，生日，生日，所在城市，昵称，签名等所有可选维度
+　　m:updateUserInfo
+  参数：xiuxiu_id
+  更新用户维度参数参考＂数据类型一＂
+5.活跃用户更新：
+  m:updateActiveUser
+  参数：xiuxiu_id
+6.查询活跃用户
+　　m:queryActiveUser
+  offset:翻页游标
+　　count:数量
+
+禁止用户相关：
+７.是否是spam用户
+　　m:isSpamUser
+  参数：xiuxiu_id
+8.投诉用户
+  m:complainUser
+  参数：from:xiuxiu_id
+        to:xiuxiu_id
+       spam:(int>0:标签类型，每次举报智能贴一个标签，可多次举报)
+9.运营执行spam掉用户操作
+　　m:spamUserByXiuxiuid
+  参数：xiuxiu_id
+10.分页查看被投诉用户与标签理由
+　　m:searchBecomplainUsers
+  参数：offset
+        count
+11.生成七牛token：
+m:getQiNiuToken, key:存储为的文件名，bucketname：存储空间，isinsertOnly：是否覆盖，xiuxiu_id：xx
+
+12.查看当前用户的标签 
+m:searchBecomplainUsers,offset:考试查询位置(int),count:查询个数(int)   ——> m:searchUsersLables  xiuxiuid:咻咻id
+13,用户活跃更新：
+　　m:updateActiveUser
+  参数：xiuxiu_id
+14,查询活跃用户
+　 m:queryActiveUser
+  参数：offset 翻页游标
+　　　　　　　 count 数量
+15.互加好友：
+　　m:beFriends
+  参数：xiuxiu_id
+        remote_id
+  返回说明：请求成功status:0  请求失败status:-1
+16.查看好友
+　　m:getFriends
+  参数：offset　查询起始位置
+　　　　　　　　count 查询个数
+17.解散好友
+  m:releaseFriendsRelation 
+  参数：xiuxiu_id
+        remote_id
+    返回说明：请求成功status:0  请求失败status:-1
+18.批量查询用户信息
+　　m:queryBatchUserInfos
+  参数：xiuxiu_ids: xxx,xxx,xxx{用逗号隔开}
+
+
+cookie相关－－在登录（调用loginByPlat）时候 ，服务端多返回一个参数cookie，需要客户端缓存起来.所有调用接口（除了登陆）都需要加入两个参数cookie:缓存后的cookie，user_id:触发这次行为用户的xiuxiu_id。
+
+19.当用户退出删掉cookie
+param:{m:delCookie, user_id:XX }
+return: {success--status:0 , false--status:-1 explain:原因}
+
+　　
