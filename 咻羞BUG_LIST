@@ -2,3 +2,8 @@
 获取用户好友的接口现在返回没有数据,之前有数据
 
 2.updateActiveUser接口更新了以后,在线用户的字段active_time没有变化,还是-1
+
+3.http://123.56.255.19:888/user_command?m=queryActiveUser&password=69b8df3fa54e58b2342c814763d46b48&offset=0&count=100&cookie=003aap1466292318&user_id=100003
+06-19 08:21:23.215  27278-27278/com.xiuxiu D/OnLineListManager﹕ 获取活跃用户id  response = {"status":-1,"explain":"cookie is not ok"}
+
+获取活跃用户的list接口 有时候就返回这样 有时候正常
