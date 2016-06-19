@@ -1,0 +1,4 @@
+1.http://123.56.255.19:888/user_command?m=getFriends&password=69b8df3fa54e58b2342c814763d46b48&xiuxiu_id=100003&user_id=100003&cookie=003aap1466292318'
+获取用户好友的接口现在返回没有数据,之前有数据
+
+2.updateActiveUser接口更新了以后,在线用户的字段active_time没有变化,还是-1
